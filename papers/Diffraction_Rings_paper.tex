@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+ 
+\title{Maximum Number of Electron Diffraction Rings}
+\author{Joe Howlett}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\noindent In a model of the electron diffraction experiment by Lester Germer and Clinton Davisson the number of electron diffraction rings can be calculated using Bragg's law and the de Broglie wavelength equation.
+\end{abstract}
+
+\section*{Maximum value of n}
+\noindent Where $n$ is the number of rings, $h$ is planks constant, $m$ is mass of electron, $e$ is charge of electron, $V$ is potential difference of $5kV$ and $d$ is the atomic spacing in layers of graphite atoms. The C--C bond length in graphite is approximately
+$0.142\,\mathrm{nm}$ (Sun et al., 2009). Therefore $d_{1}$ is $\frac{\sqrt{3}}{2}\times {0.142\times 10^{-9}} = 0.123\times10^{-9}${\scriptsize\text{(3sf)}} and $d_{2}$ is $\frac{3}{2}\times {0.142\times 10^{-9}} = 0.213\times10^{-9}$.
+
+\vspace{1em}
+
+\noindent n is in the relationship:
+\begin{align*}
+\sin\frac{\phi}{2}=\frac{nh}{2d\sqrt{2 m e V}} \\
+\intertext{Isolating n:}
+\frac{\sin\frac{\phi}{2}{2}d\sqrt{2 m e V}}{h}=n \\
+\intertext{Due to the maximum value of sin being $1$:}
+\frac{{2}d\sqrt{{2}meV}}{{h}}\ge{n}& \\
+\therefore \frac{{2}d\sqrt{{2}meV}}{{h}} ={n}&_{\text{max}}
+\end{align*}
+
+\noindent When $d$ is equal to $0.123\times10^{-9}: {n}_{\text{max}} = 14.2$ {\scriptsize\text{(3sf)}}
+
+\noindent When $d$ is equal to $0.213\times10^{-9}: {n}_{\text{max}} = 24.5$ {\scriptsize\text{(3sf)}}
+
+\vspace{1em}
+
+\noindent As n is the maximum number of rings, the values should be truncated to integers.
+\begin{align*}
+d = 0.123\times10^{-9},\ n= 14 \\
+d = 0.213\times10^{-9},\ n= 24
+\end{align*}
+
+\end{document}
