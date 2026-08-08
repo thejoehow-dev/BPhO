@@ -3,14 +3,15 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import matplotlib.ticker as ticker
 
-def main():
-    h = 6.63e-34
-    r = 65e-3
-    m = 9.109e-31
-    e = 1.6e-19
+h = 6.63e-34
+r = 65e-3
+m = 9.109e-31
+e = 1.6e-19
 
-    colourarray = ["#004ce6", "#1743ea", "#2d39ee", "#432ff2", "#5925f6", "#6f1bf9", "#8410fb", "#9706fb", "#a800f8", "#b800f2", "#c600ea", "#d300df", "#de00d2", "#e700c2", "#ee00b0", "#f4009c", "#f80087", "#fa0070", "#fb0058", "#fb003f", "#f90024", "#f61100", "#f02c00", "#e64000"]
-    
+colourarray = ["#004ce6", "#1743ea", "#2d39ee", "#432ff2", "#5925f6", "#6f1bf9", "#8410fb", "#9706fb", "#a800f8", "#b800f2", "#c600ea", "#d300df",
+                   "#de00d2", "#e700c2", "#ee00b0", "#f4009c", "#f80087", "#fa0070", "#fb0058", "#fb003f", "#f90024", "#f61100", "#f02c00", "#e64000"]
+
+def main():
     maxn = []
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
@@ -51,14 +52,7 @@ def main():
     part_a()
 
 
-def part_a(): # check d values from gradient
-    h = 6.63e-34
-    r = 65e-3
-    m = 9.109e-31
-    e = 1.6e-19
-
-    colourarray = ["#004ce6", "#1743ea", "#2d39ee", "#432ff2", "#5925f6", "#6f1bf9", "#8410fb", "#9706fb", "#a800f8", "#b800f2", "#c600ea", "#d300df", "#de00d2", "#e700c2", "#ee00b0", "#f4009c", "#f80087", "#fa0070", "#fb0058", "#fb003f", "#f90024", "#f61100", "#f02c00", "#e64000"]
-    
+def part_a(): # check d values from gradient   
     maxn = []
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
