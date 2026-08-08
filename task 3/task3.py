@@ -30,7 +30,7 @@ def ps(): # plank spec.
     c = 2.998e8
     kB = 1.381e-23
 
-    wavelength = np.linspace(0.1e-9, 2500e-9, 1000) # x   increase last number for more plots
+    wavelength = np.linspace(0.1e-9, 2500e-9, 1000) # increase last number for more plots
 
     # graph axis formatting
     plt.title("Solar Irradiance vs Wavelength")
@@ -53,7 +53,7 @@ def ps(): # plank spec.
     plt.show()
 
 
-# einsteins model               #### steps to combine: pass root into function and use customtkinter.CTkToplevel(root) instead of customtkinter.CTk() , add grid configure
+# einsteins model
 
 def em_menu(root):
     em_root = customtkinter.CTkToplevel(root)
