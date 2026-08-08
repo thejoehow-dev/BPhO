@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
-#import matplotlib.cm as cm
-#import matplotlib.colors as mcolors
 import matplotlib.ticker as ticker
 
 def main():
@@ -31,32 +28,6 @@ def main():
                 ax2.text(V[-1] + 50, x[-1], "n="+str(n), va='center', fontsize=6, color='#333333')
 
 
-            #if n % 2 == 0 or n == 1 or n == 24: # Labels selected n to avoid overcrowding
-            #    plt.text(
-            #    V[-1] + 50, x[-1], f"n={n}", 
-            #    va='center', fontsize=8, color='#333333'
-            #    )
-    
-    #for n in range(1,max(maxn)+1):
-    #    key.append(Patch(facecolor=colourarray[n-1], label=str("n="+str(n))))
-    
-    
-    #plt.legend(handles=key, loc="upper right")   ######## make more compact and add -- and - lines
-
-
-    #cmap = plt.colormaps['plasma']  # 'turbo', 'plasma', and 'viridis' are clear on white
-    #norm = mcolors.Normalize(vmin=1, vmax=24)   
-    #sm = cm.ScalarMappable(cmap=cmap, norm=norm)
-    #sm.set_array([])
-    #cbar = plt.colorbar(sm, ax=plt.gca(), pad=0.02)
-    #cbar.set_label('Variant ($n$)')
-    #cbar.set_ticks([1, 6, 12, 18, 24]) # Set neat tick increments
-
-
-
-    #types = [Line2D([0], [0], color="grey", linestyle="solid", label="d=0.123e-9"), Line2D([0], [0], color="grey", linestyle="--", label="d=0.213e-9")]
-    #plt.legend(handles=types, loc='upper right')
-
     ax1.legend(handles=[Line2D([0], [0], color="grey", linestyle="solid", label=r"$d = 0.123 \times 10^{-9}$")], loc="upper right")
     ax2.legend(handles=[Line2D([0], [0], color="grey", linestyle=(0, (3, 1.5)), label=r"$d = 0.213 \times 10^{-9}$")], loc="upper right")
 
@@ -77,15 +48,10 @@ def main():
     plt.tight_layout()
     plt.show()
 
-
-
-
     part_a()
 
 
 def part_a(): # check d values from gradient
-    #print("A")
-
     h = 6.63e-34
     r = 65e-3
     m = 9.109e-31
@@ -121,7 +87,7 @@ def part_a(): # check d values from gradient
 
         # display gradient
 
-        text = ["Gradients:\n"]
+        text = ["d value from gradients:\n"]
 
         for i, d in enumerate(calc_d):
             n = i+1
