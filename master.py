@@ -16,7 +16,6 @@ if len(sys.argv) > 1: # will only run from task 1 or 2 menu
 
 import customtkinter
 import importlib.util
-#from pathlib import Path
 
 root = customtkinter.CTk()
 root.title("BPhO Computational Challenge - Quantum Mechanics - Joe Howlett & Kieran Ody 2026")
