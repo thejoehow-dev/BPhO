@@ -97,7 +97,7 @@ def part_a(): # check d values from gradient
             if i % 2 and i != len(calc_d)-1: # makes 2 wide and dosent add extra line at end
                 text.append("\n")
 
-        if d == 0.123e-9: # y = 0.085
+        if d == 0.123e-9:
             ax1.text(0.66, 0.01, " ".join(text), transform=ax1.transAxes, verticalalignment='bottom', fontsize=8, bbox=dict(boxstyle="round,pad=0.4", facecolor="white", alpha=0.9, edgecolor="grey"))
         else:
             ax2.text(0.66, 0.01, " ".join(text), transform=ax2.transAxes, verticalalignment='bottom', fontsize=8, bbox=dict(boxstyle="round,pad=0.4", facecolor="white", alpha=0.9, edgecolor="grey"))
