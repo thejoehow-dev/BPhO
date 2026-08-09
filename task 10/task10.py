@@ -795,9 +795,6 @@ def refresh_display(*args):
     elif current_view == "contour":
         update_contour_plot()
 
-ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("blue")
-
 root = ctk.CTk()
 root.title("Probability Densities of a Hydrogenic Atom")
 root.geometry("1100x700")
