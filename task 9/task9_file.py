@@ -14,9 +14,6 @@ theta = np.linspace(0, 180, 1000)
 thetar = np.radians(theta)
 delta_l = (h / (me * c)) * (1 - np.cos(thetar))
 
-ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("blue")
-
 root = ctk.CTk()
 root.title("Compton Scattering")
 root.geometry("1400x900")
