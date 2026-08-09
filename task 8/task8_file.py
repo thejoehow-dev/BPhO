@@ -2,9 +2,6 @@ import math
 import customtkinter as ctk
 import tkinter as tk
 
-ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("blue")
-
 root = ctk.CTk()
 root.title("Mismatch Probabilities")
 root.geometry("700x800")
