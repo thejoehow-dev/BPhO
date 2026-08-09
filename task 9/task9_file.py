@@ -1,69 +1,152 @@
+import customtkinter as ctk
+import tkinter as tk
 import numpy as np
 import matplotlib.pyplot as plt
-e = 1.602176620898e-19      # electron charge
-c = 2.99792458e8            # speed of light
-h = 6.62607004081e-34       # planck
-me = 9.1093835611e-31       # electron mass
-theta = np.linspace(0,180,1000)
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
+# physical constants
+e = 1.602176620898e-19          # electron charge
+c = 2.99792458e8                # speed of light
+h = 6.62607004081e-34           # planck
+me = 9.1093835611e-31           # electron mass
+
+theta = np.linspace(0, 180, 1000)
 thetar = np.radians(theta)
-delta_l = (h / (me*c)) * (1 - np.cos(thetar))        # Δλ
-def f(x):
-    func = (-1/24 * x**5 + 1/2 * x**4 + -43/24 * x**3 + 5/2 * x**2 + -1/6 * x)      # gives 1,2,4,10,20
-    E = func*50000*e    # 50,100,200,500,1000 keV
-    l = h*c/E           # λ
-    return l
+delta_l = (h / (me * c)) * (1 - np.cos(thetar))
 
-# Δλ/λ
-fig, ax = plt.subplots()
-for i in range(1,6):
-    l = f(i)
-    plt.plot(theta, delta_l/l, label = "E=" + str(round(h*c/(50000*e*l)*50)) + "keV")
-plt.title("Compton scattering of X-ray photon off an electron")
-plt.get_current_fig_manager().set_window_title("Task 9 - Figure 1")
-ax.set_xlabel("Photon scattering angle θ /degrees")
-ax.set_ylabel("Δλ/λ")
-plt.xlim(0,180)
-plt.ylim(0,4)
-plt.xticks([0,50,100,150,180])
-plt.yticks([0,.5,1,1.5,2,2.5,3,3.5,4])
-plt.grid(linewidth = .25)
-plt.legend(loc="upper left")
+ctk.set_appearance_mode("Dark")
+ctk.set_default_color_theme("blue")
 
-# Electron recoil speed v/c
-fig, ax = plt.subplots()
-for i in range(1,6):
-    l = f(i)
-    v = np.sqrt(1 - ((me*c**2) / ((h*c/l) - (h*c/(delta_l+l)) + me*c**2))**2)
-    plt.plot(theta, v, label = "E=" + str(round(h*c/(50000*e*l)*50)) + "keV")
-    # horizontal 'max' lines
-    v_max = np.linspace(np.max(v),np.max(v),1000)
-    plt.plot(theta,v_max, color = "black", linewidth = .75)
-plt.title("Compton scattering of X-ray photon off an electron")
-plt.get_current_fig_manager().set_window_title("Task 9 - Figure 2")
-ax.set_xlabel("Photon scattering angle θ /degrees")
-ax.set_ylabel("Electron recoil speed v/c")
-plt.xlim(0,180)
-plt.ylim(0,1)
-plt.xticks([0,50,100,150,180])
-plt.yticks([0,.2,.4,.6,.8,1])
-plt.grid(linewidth = .25)
-plt.legend(loc="upper left")
+root = ctk.CTk()
+root.title("Compton Scattering")
+root.geometry("1400x900")
 
-# Electron recoil angle Φ /degrees
-fig, ax = plt.subplots()
-for i in range(1,6):
-    l = f(i)
-    phir = np.arctan((np.sin(thetar)) / (1 + ((h / (me*c*l)) * (1 - np.cos(thetar))) - np.cos(thetar)))
-    phi = np.degrees(phir)
-    plt.plot(theta, phi, label = "E=" + str(round(h*c/(50000*e*l)*50)) + "keV")
-plt.title("Compton scattering of X-ray photon off an electron")
-plt.get_current_fig_manager().set_window_title("Task 9 - Figure 3")
-ax.set_xlabel("Photon scattering angle θ /degrees")
-ax.set_ylabel("Electron recoil angle Φ /degrees")
-plt.xlim(0,180)
-plt.ylim(0,90)
-plt.xticks([0,50,100,150,180])
-plt.yticks([0,10,20,30,40,50,60,70,80,90])
-plt.grid(linewidth = .25)
-plt.legend(loc="upper right")
-plt.show()
+controls = ctk.CTkFrame(root)
+controls.pack(side="left", fill="y", padx=10, pady=10)
+
+ctk.CTkLabel(controls, text=f"Compton Scattering", font=("Arial", 24, "bold")).pack(pady=(15,15))
+ctk.CTkLabel(controls, text="Photon Energy", font=("Arial", 18)).pack(pady=(20,0))
+
+energy_label = ctk.CTkLabel(controls, text="500 keV", font=("Arial", 18))
+energy_label.pack(pady=(0,10))
+energy_var = tk.DoubleVar(value=500)
+slider_frame = ctk.CTkFrame(controls, fg_color="transparent")
+slider_frame.pack(fill="x")
+
+def validate_integer(text):
+    try:
+        value = float(text)
+        return 0 < value and text.isdigit()
+    except ValueError:
+        return False
+
+max_frame = ctk.CTkFrame(controls, fg_color="transparent")
+max_frame.pack(fill="x", padx=15)
+ctk.CTkLabel(max_frame, text="Set Maximum E / keV ").pack(side="left")
+max_var = tk.StringVar(value="1000")
+set_max_entry = ctk.CTkEntry(max_frame, textvariable=max_var, width=120, validate="key", validatecommand=(root.register(validate_integer), "%P"))
+set_max_entry.pack(side="right")
+
+slider = ctk.CTkSlider(slider_frame, from_=0.001, to=1000, variable=energy_var, number_of_steps=int(max_var.get()))
+slider.pack(fill="x", padx=20, pady=(0,10))
+
+def update_height_max(*args):
+    new_max = int(set_max_entry.get())
+    slider.configure(to=new_max)
+    if slider.get() > new_max:
+        slider.set(new_max)
+        energy_label.configure(text=f"{new_max}")
+    energy_var.set(slider.get())
+    update_graphs()
+
+set_max_entry.bind("<Return>", update_height_max)
+
+def toggle_comparison():
+    global comparison_mode
+    comparison_mode = not comparison_mode
+
+    if comparison_mode:
+        compare_button.configure(text="Return to Slider")
+    else:
+        compare_button.configure(text="Show Standard Energies")
+
+    update_graphs()
+
+compare_button = ctk.CTkButton(controls, text="Show Standard Energies", command=toggle_comparison)
+compare_button.pack(pady=20)
+
+fig = plt.Figure(figsize=(11, 8))
+
+ax1 = fig.add_subplot(221)
+ax2 = fig.add_subplot(222)
+ax3 = fig.add_subplot(212)
+
+canvas = FigureCanvasTkAgg(fig, master=root)
+canvas.get_tk_widget().pack(side="right", fill="both", expand=True)
+
+comparison_mode = False
+
+def update_graphs(*args):
+    ax1.clear()
+    ax2.clear()
+    ax3.clear()
+
+    if comparison_mode:
+        energies = [50, 100, 200, 500, 1000]
+    else:
+        energies = [energy_var.get()]
+        energy_label.configure(text=f"{energy_var.get():.0f} keV")
+
+    for E_keV in energies:
+
+        E = E_keV * 1000 * e
+        l = h * c / E
+
+        # Δλ/λ
+        ax1.plot(theta, delta_l/l, label=f"{E_keV:.0f} keV")
+
+        # recoil speed
+        v = np.sqrt(1 - ((me*c**2) /((h*c/l) - (h*c/(delta_l+l)) + me*c**2))**2)
+
+        ax2.plot(theta, v, label=f"{E_keV:.0f} keV")
+        ax2.axhline(np.max(v), color="black", linewidth=0.5)
+
+        # recoil angle
+        phir = np.arctan(np.sin(thetar) /(1 + (h/(me*c*l))*(1-np.cos(thetar)) - np.cos(thetar)))
+
+        phi = np.degrees(phir)
+
+        ax3.plot(theta, phi, label=f"{E_keV:.0f} keV")
+
+    ax1.set_title("Fractional Wavelength Shift")
+    ax1.set_xlabel("Photon scattering angle θ / °")
+    ax1.set_ylabel("Δλ / λ")
+    ax1.set_xlim(0,180)
+    ax1.set_ylim(0,4) if comparison_mode else ax1.set_ylim(0, int(max_var.get())/250)
+    ax1.grid(alpha=0.3)
+
+    ax2.set_title("Electron Recoil Speed")
+    ax2.set_xlabel("Photon scattering angle θ / °")
+    ax2.set_ylabel("v / c")
+    ax2.set_xlim(0,180)
+    ax2.set_ylim(0,1)
+    ax2.grid(alpha=0.3)
+
+    ax3.set_title("Electron Recoil Angle")
+    ax3.set_xlabel("Photon scattering angle θ / °")
+    ax3.set_ylabel("Φ / °")
+    ax3.set_xlim(0,180)
+    ax3.set_ylim(0,90)
+    ax3.grid(alpha=0.3)
+
+    if comparison_mode:
+        ax1.legend()
+
+    fig.tight_layout()
+    canvas.draw()
+
+slider.configure(command=update_graphs)
+
+update_graphs()
+
+root.mainloop()
