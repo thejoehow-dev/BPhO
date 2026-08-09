@@ -797,7 +797,7 @@ def refresh_display(*args):
 
 root = ctk.CTk()
 root.title("Probability Densities of a Hydrogenic Atom")
-root.geometry("1100x700")
+root.geometry("1200x910")
 
 # figure
 fig, ax = plt.subplots(figsize=(8, 6))
