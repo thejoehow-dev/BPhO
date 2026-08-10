@@ -155,7 +155,7 @@ def run(root):
     update_graphs()
     fig.tight_layout() # isnt laggy here
 
-    if root != ctk.CTkToplevel():
+    if __name__ == "__main__":
         root.mainloop()
 
 if __name__ == "__main__": run(root = ctk.CTk())
