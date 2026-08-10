@@ -3,7 +3,7 @@ import customtkinter as ctk
 import tkinter as tk
 
 root = ctk.CTk()
-root.title("Task 8 - Mismatch Probabilities")
+root.title("Mismatch Probabilities")
 root.geometry("700x800")
 
 # variables
@@ -90,7 +90,7 @@ def draw():
     a2 = math.radians(angle2)
 
     classical = (1 - (math.cos(a1)*math.cos(a2))**2 - (math.sin(a1)*math.sin(a2))**2)
-    quantum = (math.sin(math.radians(angle1 - angle2 + 360)))**2
+    quantum = (math.sin(a1 - a2))**2
 
     classical_label.configure(text=f"Classical P(mismatch) = {classical:.6f}")
     quantum_label.configure(text=f"Quantum P(mismatch) = {quantum:.6f}")
