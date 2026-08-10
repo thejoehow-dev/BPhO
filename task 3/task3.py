@@ -23,7 +23,7 @@ def menu():
     root.mainloop()
 
 def ps(): # plank spec.
-    plt.figure()
+    fig, ax = plt.subplots() # fixes other graphs appearing
 
     # constants
     h = 6.626e-34
@@ -33,9 +33,10 @@ def ps(): # plank spec.
     wavelength = np.linspace(0.1e-9, 2500e-9, 1000) # increase last number for more plots
 
     # graph axis formatting
-    plt.title("Solar Irradiance vs Wavelength")
+    fig.suptitle("Solar Irradiance vs Wavelength")
     plt.get_current_fig_manager().set_window_title("Task 3 - Solar Irradiance vs Wavelength")
-    plt.axis((0,2500,0,10e4))
+    ax.set_xlim(0, 2500)
+    ax.set_ylim(0, 10e4)
     plt.ticklabel_format(axis='y', style='sci', scilimits=(4, 4), useMathText=True)
 
     key = []
@@ -43,14 +44,14 @@ def ps(): # plank spec.
     for T,colour in [[4000, "lightblue" ],[5000, "sandybrown"],[6000, "wheat"]]:
         irradiance = ((np.pi * 2 * h * c**2) / wavelength**5) * (1 / (np.exp((h * c) / (wavelength * kB * T)) -1)) # multiplied by pi to go from rad. to irrad.
         
-        plt.plot(wavelength * 1e9 ,irradiance * 1e-9, color=colour)
+        ax.plot(wavelength * 1e9 ,irradiance * 1e-9, color=colour)
 
         key.append(Patch(facecolor=colour, label=str(T)+"K"))
 
-    plt.legend(handles=key, loc="upper right") # adds key
-    plt.xlabel("Wavelength / nm")
-    plt.ylabel(r"Irradiance / Wm$^{-2}$ / nm")
-    plt.show()
+    ax.legend(handles=key, loc="upper right") # adds key
+    ax.set_xlabel("Wavelength / nm")
+    ax.set_ylabel(r"Irradiance / Wm$^{-2}$ / nm")
+    fig.show()
 
 
 # einsteins model

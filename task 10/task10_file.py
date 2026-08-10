@@ -797,7 +797,7 @@ def refresh_display(*args):
         update_contour_plot()
 
 root = ctk.CTk()
-root.title("Probability Densities of a Hydrogenic Atom")
+root.title("Task 10 - Probability Densities of a Hydrogenic Atom")
 root.geometry("1200x910")
 
 # figure
