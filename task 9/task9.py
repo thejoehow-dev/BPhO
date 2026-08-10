@@ -63,7 +63,7 @@ def run(root):
     set_max_entry.bind("<Return>", update_height_max)
 
     def toggle_comparison():
-        nonlocal comparison_mode
+        nonlocal comparison_mode # fixes not defined
         comparison_mode = not comparison_mode
 
         if comparison_mode:
