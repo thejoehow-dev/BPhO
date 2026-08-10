@@ -110,7 +110,6 @@ def update_graphs(*args):
 
         # recoil angle
         phir = np.arctan(np.sin(thetar) /(1 + (h/(me*c*l))*(1-np.cos(thetar)) - np.cos(thetar)))
-
         phi = np.degrees(phir)
 
         ax3.plot(theta, phi, label=f"{E_keV:.0f} keV")
