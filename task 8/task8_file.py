@@ -3,7 +3,7 @@ import customtkinter as ctk
 import tkinter as tk
 
 root = ctk.CTk()
-root.title("Mismatch Probabilities")
+root.title("Task 8 - Mismatch Probabilities")
 root.geometry("700x800")
 
 # variables
