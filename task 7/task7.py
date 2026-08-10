@@ -76,7 +76,7 @@ def main():
     ax2.legend(loc = "upper center")
 
 
-    plt.suptitle(f"Particle in a box energy /eV\nm = " + str(round(me,35)) + "kg")
+    fig.suptitle(f"Particle in a box energy /eV\nm = " + str(round(me,35)) + "kg")
     plt.get_current_fig_manager().set_window_title("Task 7 - The Wave Equation and Uncertainty Principle")
     plt.tight_layout()
     plt.show()

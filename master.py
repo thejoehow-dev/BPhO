@@ -4,11 +4,12 @@ import runpy
 
 BASE_DIR = Path(getattr(sys, "_MEIPASS", Path(__file__).parent)) # fixes task 1 and 2 menu opening this when exe
 
-if len(sys.argv) > 1: # will only run from task 1 or 2 menu
+if len(sys.argv) > 1: # will only run from task 1 or 2 menu and when running task 10
     code = {"task1_2D": BASE_DIR / "task 1" / "task1_2D.py",
             "task1_3D": BASE_DIR / "task 1" / "task1_3D.py",
             "task2_2D": BASE_DIR / "task 2" / "task2_2D.py",
-            "task2_3D": BASE_DIR / "task 2" / "task2_3D.py"}
+            "task2_3D": BASE_DIR / "task 2" / "task2_3D.py",
+            "task10_file": BASE_DIR / "task 10" / "task10_file.py"}
 
     if sys.argv[1] in code:
         runpy.run_path(code[sys.argv[1]], run_name="__main__")
