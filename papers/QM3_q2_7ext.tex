@@ -1,0 +1,495 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{bm}
+
+\title{Quantum Mechanics 3 -- Question 2, Task 7 Ext.}
+\author{Kieran Ody}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{2. The Particle in a One-Dimensional Infinite Potential Well -- Including Task 7 Extension}
+
+The infinite potential well (or ``particle in a box'') is one of the simplest exactly solvable quantum systems. Although idealised, it demonstrates several fundamental concepts of quantum mechanics, including wavefunctions, quantised energy levels and Heisenberg's Uncertainty Principle.
+
+\begin{equation*}
+\psi(x,t)
+\end{equation*}
+
+describes the wavefunction of a particle of mass $m$ in a `box' of potential energy V.
+
+\vspace{1\baselineskip}
+
+The potential is defined as
+
+\begin{equation*}
+V(x)=
+\begin{cases}
+0, & 0<x<a,\\
+\infty, & \text{otherwise}.
+\end{cases}
+\end{equation*}
+
+
+\subsection*{2(i) Standing Waves}
+
+The particle is confined to the region $0\leq x\leq a$ by an
+infinite potential outside the box. Therefore, the wavefunction
+must satisfy the boundary conditions
+
+\begin{equation*}
+\psi(0,t)=\psi(a,t)=0
+\end{equation*}
+
+At the left-hand boundary, $x=0$, the sine term becomes
+
+\begin{equation*}
+\sin(0)=0,
+\end{equation*}
+
+so that $\psi(0,t)=0$. At the right-hand boundary, $x=a$,
+
+\begin{equation*}
+\sin\left(\frac{n\pi a}{a}\right) = \sin(n\pi) = 0
+\end{equation*}
+
+This means the points $x=0$ and $x=a$ are nodes of a standing wave.
+
+\vspace{1\baselineskip}
+
+The condition above is satisfied when $n$ is an integer. The value
+$n=0$ would result in $\psi(x,t)=0$ everywhere and therefore cannot
+represent a particle, so the allowed values are
+
+\begin{equation*}
+\boxed{n=1,2,3,\ldots}
+\end{equation*}
+
+Thus, $n$ is a positive integer and represents the quantum number
+associated with the standing-wave state.
+
+\begin{equation*}
+\cos(\omega t)
+\end{equation*}
+
+where $\omega = 2\pi f$, $f=c/\lambda$, describes the wavefunction's sinusoidal time dependence. At a fixed position $x$, the wavefunction therefore oscillates with angular frequency $\omega$:
+
+\begin{equation*}
+\psi(x,t)\propto\cos(\omega t)
+\end{equation*}
+
+The angular frequency is related to the energy of the state by
+
+\begin{equation*}
+E=\hbar\omega
+\end{equation*}
+
+\vspace{1\baselineskip}
+
+A suitable form for the wavefunction is therefore
+
+\begin{equation*}
+\boxed{\psi(x,t) = A_n\sin\left(\frac{n\pi x}{a}\right)\cos(\omega t)}
+\end{equation*}
+
+$A_n$ is the normalisation factor. The sine term describes the
+spatial standing-wave pattern, while the cosine term
+describes its time dependence.
+
+
+\subsection*{2(ii) A Solution to the Schrödinger Equation}
+
+The time-independent Schrödinger equation is
+
+\begin{equation*}
+-\frac{\hbar^2}{2m} \frac{\partial^2\psi}{\partial x^2} + V\psi = E\psi
+\end{equation*}
+
+Inside the box, the potential is zero, and the time-independent Schrödinger equation is therefore
+
+\begin{equation*}
+-\frac{\hbar^2}{2m} \frac{\partial^2\psi}{\partial x^2} = E\psi
+\end{equation*}
+
+Consider the proposed wavefunction
+
+\begin{equation*}
+\psi(x,t) = A_n\sin\left(\frac{n\pi x}{a}\right)\cos(\omega t)
+\end{equation*}
+
+Differentiating twice with respect to $x$ gives
+
+\begin{equation*}
+\frac{\partial^2\psi}{\partial x^2} = -A_n \left(\frac{n\pi}{a}\right)^2 \sin\left(\frac{n\pi x}{a}\right) \cos(\omega t)
+= -\left(\frac{n\pi}{a}\right)^2\psi
+\end{equation*}
+
+Substituting this into the Schrödinger equation gives
+
+\begin{equation*}
+-\frac{\hbar^2}{2m} \left[-\left(\frac{n\pi}{a}\right)^2\psi\right] = E\psi
+\end{equation*}
+
+Hence,
+
+\begin{equation*}
+\boxed{E(n,a) = \frac{n^2\pi^2\hbar^2}{2ma^2}}
+\end{equation*}
+
+For a proton confined to a box of width
+
+\begin{equation*}
+a = 0.47\times10^{-15}\,\mathrm{m},
+\end{equation*}
+
+the ground-state energy ($n=1$) is approximately
+
+\begin{equation*}
+E_1\approx927\,\mathrm{MeV}
+\end{equation*}
+
+Since the energy varies with $n^2$, the general energy is
+
+\begin{equation*}
+\boxed{E_n\approx927n^2\,\mathrm{MeV}}
+\end{equation*}
+
+The proton rest mass energy is
+
+\begin{equation*}
+m_pc^2\approx938\,\mathrm{MeV}
+\end{equation*}
+
+Consequently,
+
+\begin{equation*}
+\frac{E_1}{m_pc^2} \approx \frac{927}{938} \approx 0.988
+\end{equation*}
+
+The ground-state energy is approximately $98.8\%$ of the proton's
+rest mass energy, $m_pc^2$. The non-relativistic Schrödinger equation
+assumes that the kinetic energy is much smaller than the rest energy,
+so that
+
+\begin{equation*}
+K_e \approx \frac{p^2}{2m}.
+\end{equation*}
+
+However, in this case, the predicted confinement energy is comparable
+to $m_pc^2$. This indicates that the proton would have a sufficiently
+large momentum for relativistic effects to become important. The non-relativistic particle-in-a-box model no longer provides an accurate description of the proton in such a small confinement region. A relativistic approach would instead be required.
+
+
+\subsection*{2(iii) Time Dependence and Normalisation}
+
+The time-dependent factor $\cos(\omega t)$ can be replaced by the
+complex exponential $e^{-iEt/\hbar}$. This follows from the
+relationship between energy and angular frequency,
+
+\begin{equation*}
+E=\hbar\omega
+\end{equation*}
+
+Thus, the wavefunction can be written as
+
+\begin{equation*}
+\psi_n(x,t) = A_n \sin\left(\frac{n\pi x}{a}\right) e^{-iE_nt/\hbar}
+\end{equation*}
+
+The Born interpretation states that $|\psi(x,t)|^2$ represents the
+probability density of finding the particle at position $x$. Since
+the particle must be found somewhere within the box, the total
+probability must be total certainty:
+
+\begin{equation*}
+\int_0^a |\psi_n(x,t)|^2\,dx=1
+\end{equation*}
+
+Taking the modulus squared of the wavefunction gives
+
+\begin{equation*}
+|\psi_n(x,t)|^2 = A_n^2 \sin^2\left(\frac{n\pi x}{a}\right) \left|e^{ iE_nt/\hbar}\right|^2
+\end{equation*}
+
+Since
+
+\begin{equation*}
+\left|e^{-iE_nt/\hbar}\right|^2 = 1,
+\end{equation*}
+
+the probability density is independent of time:
+
+\begin{equation*}
+|\psi_n(x,t)|^2 = A_n^2 \sin^2\left(\frac{n\pi x}{a}\right)
+\end{equation*}
+
+Normalisation therefore requires
+
+\begin{equation*}
+A_n^2 \int_0^a \sin^2\left(\frac{n\pi x}{a}\right)\,dx = 1
+\end{equation*}
+
+Using
+
+\begin{equation*}
+\int_0^a \sin^2\left(\frac{n\pi x}{a}\right)\,dx = \frac{a}{2},
+\end{equation*}
+
+we obtain
+
+\begin{equation*}
+A_n^2\frac{a}{2}=1
+\end{equation*}
+
+Therefore,
+
+\begin{equation*}
+\boxed{A_n=\sqrt{\frac{2}{a}}}
+\end{equation*}
+
+The normalised wavefunction is
+
+\begin{equation*}
+\boxed{\psi_n(x,t) = \sqrt{\frac{2}{a}} \sin\left(\frac{n\pi x}{a}\right) e^{-iE_nt/\hbar}}
+\end{equation*}
+
+
+\subsection*{2(iv) Expected Values of Momentum}
+
+The momentum operator in one dimension is
+
+\begin{equation*}
+\hat{p}=-i\hbar\frac{\partial}{\partial x}
+\end{equation*}
+
+The expected value of momentum is given by
+
+\begin{equation*}
+\langle p\rangle = \int_0^a \psi^*\hat{p}\psi\,dx
+\end{equation*}
+
+For the normalised wavefunction
+
+\begin{equation*}
+\psi_n(x,t) = \sqrt{\frac{2}{a}} \sin\left(\frac{n\pi x}{a}\right) e^{-iE_nt/\hbar},
+\end{equation*}
+
+differentiation with respect to $x$ gives
+
+\begin{equation*}
+\frac{\partial\psi_n}{\partial x} = \sqrt{\frac{2}{a}} \frac{n\pi}{a} \cos\left(\frac{n\pi x}{a}\right) e^{-iE_nt/\hbar}
+\end{equation*}
+
+Therefore,
+
+\begin{equation*}
+\langle p\rangle = -i\hbar\frac{2n\pi}{a^2} \int_0^a \sin\left(\frac{n\pi x} {a}\right) \cos\left(\frac{n\pi x}{a}\right) \,dx
+\end{equation*}
+
+The integral evaluates to zero, giving
+
+\begin{equation*}
+\boxed{\langle p\rangle=0}
+\end{equation*}
+
+Physically, this occurs because the standing wave contains equal
+components travelling in opposite directions, corresponding to equal
+and opposite momenta.
+
+\vspace{1\baselineskip}
+
+The square of the momentum operator is
+
+\begin{equation*}
+\hat{p}^2 = -\hbar^2\frac{\partial^2}{\partial x^2}
+\end{equation*}
+
+From the second derivative of the wavefunction,
+
+\begin{equation*}
+\frac{\partial^2\psi_n}{\partial x^2} = -\left(\frac{n\pi}{a}\right)^2\psi_n
+\end{equation*}
+
+Substituting,
+
+\begin{equation*}
+\hat{p}^2\psi_n = \frac{n^2\pi^2\hbar^2}{a^2}\psi_n
+\end{equation*}
+
+Taking the expected value gives
+
+\begin{equation*}
+\langle p^2\rangle = \frac{n^2\pi^2\hbar^2}{a^2} \int_0^a|\psi_n|^2\,dx
+\end{equation*}
+
+Since the wavefunction is normalised,
+
+\begin{equation*}
+\int_0^a|\psi_n|^2\,dx=1,
+\end{equation*}
+
+and hence
+
+\begin{equation*}
+\boxed{ \langle p^2\rangle = \frac{n^2\pi^2\hbar^2}{a^2}}
+\end{equation*}
+
+
+\subsection*{2(v)(a) Expected Values of $x$}
+
+The expected value of x is given by
+
+\begin{equation*}
+\langle x\rangle = \int_0^a x|\psi_n|^2\,dx = \frac{2}{a} \int_0^a x\sin^2\left(\frac{n\pi x}{a}\right)\,dx
+\end{equation*}
+
+Quoting the integral identity:
+
+\begin{equation*}
+\int x \sin^2(\alpha x) \, dx = \frac{1}{4}x^2 - \frac{x\sin(2\alpha x)}{4\alpha} - \frac{\cos(2\alpha x)}{8\alpha^2}
+\end{equation*}
+
+Let
+
+\begin{equation*}
+\alpha = \frac{n\pi}{a}
+\end{equation*}
+
+Evaluating the definite integral from $x = 0$ to $x = a$ (noting that $2\alpha a = 2n\pi$, so $\sin(2n\pi) = 0$ and $\cos(2n\pi) = 1$):
+
+\begin{align}
+\int_0^a x \sin^2(\alpha x) \, dx &= \left[ \frac{1}{4}x^2 - \frac{x\sin(2\alpha x)}{4\alpha} - \frac{\cos(2\alpha x)}{8\alpha^2} \right]_0^a \\
+&= \left( \frac{1}{4}a^2 - 0 - \frac{1}{8\alpha^2} \right) - \left( 0 - 0 - \frac{1}{8\alpha^2} \right) \\
+&= \frac{1}{4}a^2
+\end{align}
+
+Thus:
+\begin{equation*}
+\boxed{\langle x \rangle = \frac{2}{a} \left( \frac{1}{4}a^2 \right) = \frac{1}{2}a}
+\end{equation*}
+
+
+\subsection*{2(v)(b) Calculation of $\langle x^2 \rangle$}
+
+The expected value $\langle x^2 \rangle$ is:
+
+\begin{equation*}
+\langle x^2 \rangle = \int_0^a x^2 |\psi_n(x)|^2 \, dx = \frac{2}{a} \int_0^a x^2 \sin^2(\alpha x) \, dx
+\end{equation*}
+
+Quoting the integral identity:
+
+\begin{equation*}
+\int x^2 \sin^2(\alpha x) \, dx = \frac{1}{6}x^3 - \frac{x \cos(2\alpha x)}{4\alpha^2} - \frac{(2\alpha^2 x^2 - 1)\sin(2\alpha x)}{8\alpha^3}
+\end{equation*}
+
+Let
+
+\begin{equation*}
+\alpha = \frac{n\pi}{a}
+\end{equation*}
+
+Evaluating from $x = 0$ to $x = a$:
+
+\begin{align*}
+\int_0^a x^2 \sin^2(\alpha x) \, dx &= \left[ \frac{1}{6}x^3 - \frac{x \cos(2\alpha x)}{4\alpha^2} - \frac{(2\alpha^2 x^2 - 1)\sin(2\alpha x)}{8\alpha^3} \right]_0^a \\
+&= \left( \frac{1}{6}a^3 - \frac{a}{4\alpha^2} - 0 \right) - (0 - 0 - 0) \\
+&= \frac{a^3}{6} - \frac{a}{4\alpha^2}
+\end{align*}
+
+Substituting $\alpha = \frac{n\pi}{a}$:
+
+\begin{equation*}
+\int_0^a x^2 \sin^2(\alpha x) \, dx = \frac{a^3}{6} - \frac{a^3}{4n^2\pi^2}
+\end{equation*}
+
+And
+
+\begin{align*}
+\langle x^2 \rangle &= \frac{2}{a} \left( \frac{a^3}{6} - \frac{a^3}{4n^2\pi^2} \right) \\
+&= \frac{a^2}{3} - \frac{a^2}{2n^2\pi^2} \\
+&= \frac{1}{3}a^2 \left( 1 - \frac{3}{2n^2\pi^2} \right)
+\end{align*}
+
+
+\subsection*{2(vi)(a) Calculation of $\Delta x$}
+
+The uncertainty in position $\Delta x$ is defined by:
+
+\begin{equation*}
+(\Delta x)^2 = \langle x^2 \rangle - \langle x \rangle^2
+\end{equation*}
+
+Using the previously derived results of $\langle x \rangle$ and $\langle x^2 \rangle$:
+
+\begin{align*}
+(\Delta x)^2 &= \left( \frac{a^2}{3} - \frac{a^2}{2n^2\pi^2} \right) - \left( \frac{a}{2} \right)^2 \\
+&= \left( \frac{a^2}{3} - \frac{a^2}{4} \right) - \frac{a^2}{2n^2\pi^2} \\
+&= \frac{a^2}{12} - \frac{a^2}{2n^2\pi^2}
+\end{align*}
+
+Factoring out $\frac{a^2}{4n^2\pi^2}$:
+\begin{align*}
+(\Delta x)^2 &= \frac{a^2}{4n^2\pi^2} \left( \frac{4n^2\pi^2}{12} - 2 \right) \\
+&= \frac{a^2}{4n^2\pi^2} \left( \frac{n^2\pi^2}{3} - 2 \right)
+\end{align*}
+
+Taking the square root yields
+\begin{equation*}
+\Delta x = \frac{a}{2n\pi} \sqrt{\frac{n^2\pi^2}{3} - 2}
+\end{equation*}
+
+\subsection*{2(vi)(b) Calculation of $\Delta p$}
+
+The uncertainty in momentum $\Delta p$ is defined by:
+\begin{equation*}
+(\Delta p)^2 = \langle p^2 \rangle - \langle p \rangle^2
+\end{equation*}
+
+Using the previously derived results of $\langle p \rangle$ and $\langle p^2 \rangle$:
+\begin{equation*}
+\Delta p = \sqrt{\frac{n^2\pi^2\hbar^2}{a^2} - 0} = \frac{n\pi\hbar}{a}
+\end{equation*}
+
+\subsection*{2(vi)(c) Product of Uncertainties $\Delta x \Delta p$}
+
+Multiplying $\Delta x$ and $\Delta p$:
+\begin{align*}
+\Delta x \Delta p &= \left( \frac{a}{2n\pi} \sqrt{\frac{n^2\pi^2}{3} - 2} \right) \left( \frac{n\pi\hbar}{a} \right) \\
+&= \frac{1}{2}\hbar \sqrt{\frac{n^2\pi^2}{3} - 2}
+\end{align*}
+
+\subsection*{2(vi)(d) Verification of the Uncertainty Principle}
+
+Heisenberg's Uncertainty Principle requires that:
+\begin{equation*}
+\Delta x \Delta p \ge \frac{\hbar}{2}
+\end{equation*}
+
+For our result to satisfy this inequality, we need:
+\begin{equation*}
+\sqrt{\frac{n^2\pi^2}{3} - 2} \ge 1
+\end{equation*}
+
+Testing for the ground state ($n = 1$):
+\begin{equation*}
+\frac{(1)^2\pi^2}{3} - 2 \approx 1.2899 > 1
+\end{equation*}
+
+Taking the square root:
+\begin{equation*}
+\sqrt{1.2899} \approx 1.1357 > 1
+\end{equation*}
+
+Since $\sqrt{\frac{n^2\pi^2}{3} - 2}$ increases as $n$ increases, the factor is strictly greater than 1 for all quantum numbers $n$, therefore,
+\begin{equation*}
+\Delta x \Delta p > \frac{\hbar}{2} \quad \text{for all } n = 1, 2, 3, \dots
+\end{equation*}
+
+This verifies that the particle in a box always satisfies Heisenberg's Uncertainty Principle.
+
+\end{document}
