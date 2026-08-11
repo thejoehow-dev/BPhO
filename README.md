@@ -2,7 +2,7 @@
 
 Our entry into the BPhO 2026 Computational Challenge
 
-If you haven't yet, watch [our video](https://youtu.be/UkVOgzbvYE4)
+If you haven't yet, watch [our video](https://youtu.be/iYlwVAAoyEA)
 
 ---
 
