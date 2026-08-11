@@ -10,7 +10,7 @@ def energy(n,m):
     return deltaEnergy
 
 def main():
-    plt.figure() # to fix it overlapping with other graphs open
+    fig, ax = plt.subplots() # to fix it overlapping with other graphs open
     ymax=13
     colourdict = {1: "magenta",
                   2: "orangered",
@@ -30,19 +30,21 @@ def main():
         for n in range(m+1,10):
             x.append(wavelength(n,m))
             y.append(energy(n,m))
-            plt.vlines(x[-1],0,ymax, colors=colourdict[m])
-        plt.scatter(x,y, s=10, c=colourdict[m])
+            ax.vlines(x[-1],0,ymax, colors=colourdict[m])
+        ax.scatter(x,y, s=10, c=colourdict[m])
         key.append(Patch(facecolor=colourdict[m], label=namedict[m]))
     # graph setup
-    plt.legend(handles=key, loc="upper right")
-    ax = plt.gca()
+    ax.legend(handles=key, loc="upper right")
     ax.set_xlabel("λ / nm")
     ax.set_ylabel("Photon Energy / eV")
     ax.axis((0,8000,0,ymax))
     plt.get_current_fig_manager().set_window_title("Task 5 - Hydrogen Spectra")
-    plt.title("Bohr model of Hydrogenic atom photon emissions: Z = 1")
-    plt.tight_layout()
-    plt.show()
+    fig.suptitle("Bohr model of Hydrogenic atom photon emissions: Z = 1")
+    fig.tight_layout()
+    if __name__ == "__main__":
+        plt.show()
+    else:
+        fig.show()
 
 
 # so master file dosent auto run
