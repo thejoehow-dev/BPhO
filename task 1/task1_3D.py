@@ -71,6 +71,8 @@ ax.set_xlabel("x")
 ax.set_ylabel("y")
 ax.set_zlabel("z")
 
+plt.get_current_fig_manager().set_window_title("Task 1 - 3D Random Walk")
+
 t1 = "3D Random Walk, "
 
 if N == 1:

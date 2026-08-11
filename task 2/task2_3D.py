@@ -41,6 +41,7 @@ ax.set_ylabel("Y")
 ax.set_zlabel("Z")
 
 ax.set_title("3D Brownian Motion Simulation")
+plt.get_current_fig_manager().set_window_title("Task 2 - 3D Brownian Motion Simulation")
 
 # small particles
 scatter = ax.scatter(pos[:,0], pos[:,1], pos[:,2], s=5)

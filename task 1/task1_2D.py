@@ -51,6 +51,8 @@ ax.set_aspect('equal')
 ax.set_xlabel("x")
 ax.set_ylabel("y")
 
+plt.get_current_fig_manager().set_window_title("Task 1 - 2D Random Walk")
+
 t1 = "2D Random Walk, "
 
 if N == 1:

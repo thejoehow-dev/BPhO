@@ -42,6 +42,7 @@ ax.set_xlim(0, L)
 ax.set_ylim(0, L)
 ax.set_aspect('equal')
 ax.set_title("Brownian Motion Simulation")
+plt.get_current_fig_manager().set_window_title("Task 2 - Brownian Motion Simulation")
 ax.set_xlabel("x")
 ax.set_ylabel("y")
 
