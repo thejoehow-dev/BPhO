@@ -46,8 +46,11 @@ def main():
     fig.suptitle("Ring Radius vs Accelerating Voltage")
     plt.get_current_fig_manager().set_window_title("Task 6 - Electric Diffraction")
 
-    plt.tight_layout()
-    plt.show()
+    fig.tight_layout
+    if __name__ == "__main__":
+        plt.show()
+    else:
+        fig.show()
 
     part_a()
 
@@ -121,8 +124,11 @@ def part_a(): # check d values from gradient
     fig.suptitle(r"Checking values for d using $\left. \Delta \mathrm{V}^{-1/2} \right/ \Delta \sin\left(\frac{\phi}{2}\right)$")
     plt.get_current_fig_manager().set_window_title("Task 6 - Checking values for d")
     
-    plt.tight_layout()
-    plt.show()
+    fig.tight_layout()
+    if __name__ == "__main__":
+        plt.show()
+    else:
+        fig.show()
 
 
 if __name__ == "__main__": main()

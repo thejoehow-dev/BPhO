@@ -109,8 +109,11 @@ def main():
 
     fig.suptitle(f"Particle in a box energy /eV\nm = " + str(round(m,35)) + "kg")
     plt.get_current_fig_manager().set_window_title("Task 7 - The Wave Equation and Uncertainty Principle")
-    plt.tight_layout()
-    plt.show()
+    fig.tight_layout()
+    if __name__ == "__main__":
+        plt.show()
+    else:
+        fig.show()
 
 
 
