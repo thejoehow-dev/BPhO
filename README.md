@@ -16,17 +16,11 @@ To make running individual tasks easier you can download individual tasks from t
 
 ### Imports Needed
 
-| **Task**          |**Imports**|
-| :---------------- | :------- |
-| Task 1            | matplotlib, numpy (installed by matplotlib) |
-| Task 2            | matplotlib, numpy (installed by matplotlib) |
-| Task 3            | matplotlib, numpy (installed by matplotlib), customtkinter |
-| Task 4            | matplotlib, numpy (installed by matplotlib), customtkinter |
-| Task 5            | matplotlib, numpy (installed by matplotlib) |
-| Task 6            | matplotlib, numpy (installed by matplotlib) |
-| Task 7            | matplotlib, numpy (installed by matplotlib) |
-| Task 8            | customtkinter |
-| Task 9            | matplotlib, numpy (installed by matplotlib), customtkinter |
-| Task 10           | matplotlib, numpy (installed by matplotlib), customtkinter, mayavi, pyqt5, scipy |
+| **Task**          |**Imports**| **pip command** |
+| :---------------- | :------- | :------- |
+| Task 1, 2, 5, 6, 7           | matplotlib, numpy (installed by matplotlib) | pip install matplotlib |
+| Task 3, 4, 9            | matplotlib, numpy (installed by matplotlib), customtkinter | pip install matplotlib customtkinter |
+| Task 8            | customtkinter | pip install customtkinter |
+| Task 10           | matplotlib, numpy (installed by matplotlib), customtkinter, mayavi, pyqt5, scipy | pip install matplotlib customtkinter mayavi pyqt5 scipy |
 
 * master.py requires customtkinter if not installed
