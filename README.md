@@ -1,6 +1,6 @@
 ## BPhO Computational Challenge 2026 - Quantum Mechanics
 
-Our entry into the BPhO 2026 Computational Challenge
+Our Gold achieving entry into the BPhO 2026 Computational Challenge
 
 If you haven't yet, watch [our video](https://youtu.be/iYlwVAAoyEA).
 
